@@ -1,18 +1,19 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const SignInLinks = () => {
   return (
     <ul className="right">
       <li>
-        <a href="/">New Project</a>
+        <Link to="/create">New Project</Link>
       </li>
       <li>
-        <a href="/">Log Out</a>
+        <Link to="/">Log Out</Link>
       </li>
       <li>
-        <a href="/" className="btn btn-floating pink lighten-1">
+        <Link to="/" className="btn btn-floating pink lighten-1">
           NN
-        </a>
+        </Link>
       </li>
     </ul>
   )

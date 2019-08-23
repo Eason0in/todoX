@@ -1,13 +1,52 @@
+html,
+body {
+  min-height: 100vh;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
+    'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: url(/img/SV.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  height: 100vh;
+  overflow: hidden;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
+
+.App .dashboard .project-list,
+.App .project-todos > .card {
+  overflow-y: scroll;
+  max-height: 80vh;
+}
+
+.App .dashboard .project-list::-webkit-scrollbar,
+.App .project-todos > .card::-webkit-scrollbar {
+  width: 10px;
+}
+
+.App .dashboard .project-list::-webkit-scrollbar-thumb,
+.App .project-todos > .card::-webkit-scrollbar-thumb {
+  background: #888;
+  background-clip: content-box;
+  border: 4px solid rgba(255, 255, 255, 0);
+  border-top: 8px solid rgba(255, 255, 255, 0);
+  border-bottom: 15px solid rgba(255, 255, 255, 0);
+}
+
+.App .project-todos .todo-summary .card-content {
+  overflow-wrap: break-word;
+}
+/* 
+.App .project-todos .todo-summary .card-action .todo-actions {
+  display: inline-flex;
+  line-height: 24px;
+} */
