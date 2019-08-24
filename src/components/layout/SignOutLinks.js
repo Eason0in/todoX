@@ -1,13 +1,14 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const SignOutLinks = () => {
   return (
     <ul className="right">
       <li>
-        <a href="/">Sign Up</a>
+        <Link to="/signup">Sign Up</Link>
       </li>
       <li>
-        <a href="/">Sign In</a>
+        <Link to="/signin">Sign In</Link>
       </li>
     </ul>
   )
