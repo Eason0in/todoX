@@ -50,6 +50,16 @@ a.todo-actions:hover {
   cursor: pointer;
 }
 
+form {
+  padding: 20px;
+  margin-top: 60px;
+}
+
+form button,
+form h5 {
+  margin: 20px 0;
+}
+
 /* 
 .App .project-todos .todo-summary .card-action .todo-actions {
   display: inline-flex;

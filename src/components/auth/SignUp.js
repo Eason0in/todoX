@@ -8,10 +8,13 @@ class SignUp extends Component {
     lastName: ''
   }
   handleChange = e => {
-    console.log(e)
+    this.setState({
+      [e.target.id]: e.target.value
+    })
   }
   handleSubmit = e => {
-    console.log(e)
+    e.preventDefault()
+    console.log(this.state)
   }
   render() {
     return (
@@ -33,6 +36,9 @@ class SignUp extends Component {
           <div className="input-field">
             <input id="lastName" type="text" onChange={this.handleChange} />
             <label htmlFor="lastName">Last Name</label>
+          </div>
+          <div className="input-field">
+            <button className="btn z-depth-0">Sign Up</button>
           </div>
         </form>
       </div>

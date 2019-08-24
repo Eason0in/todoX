@@ -5,16 +5,20 @@ class CreateProject extends Component {
     title: '',
     content: ''
   }
-  handleSumit = e => {
-    console.log(e)
-  }
   handleChange = e => {
-    console.log(e.target)
+    this.setState({
+      [e.target.id]: e.target.value
+    })
+  }
+  handleSubmit = e => {
+    e.preventDefault()
+    console.log(this.state)
   }
   render() {
     return (
       <div className="container">
         <form onSubmit={this.handleSumit} className="white">
+          <h5 className="grey-text text-darken-3">Create new Project</h5>
           <div className="input-field">
             <input id="title" type="text" onChange={this.handleChange} />
             <label htmlFor="title">Title</label>
@@ -22,6 +26,9 @@ class CreateProject extends Component {
           <div className="input-field">
             <textarea id="content" class="materialize-textarea" />
             <label htmlFor="content">Content</label>
+          </div>
+          <div className="input-field">
+            <button className="btn z-depth-0">Create</button>
           </div>
         </form>
       </div>

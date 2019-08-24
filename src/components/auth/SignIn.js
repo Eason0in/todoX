@@ -6,10 +6,13 @@ class SignIn extends Component {
     password: ''
   }
   handleChange = e => {
-    console.log(e)
+    this.setState({
+      [e.target.id]: e.target.value
+    })
   }
   handleSubmit = e => {
-    console.log(e)
+    e.preventDefault()
+    console.log(this.state)
   }
   render() {
     return (
@@ -23,6 +26,9 @@ class SignIn extends Component {
           <div className="input-field">
             <input id="password" type="password" onChange={this.handleChange} />
             <label htmlFor="password">Password</label>
+          </div>
+          <div className="input-field">
+            <button className="btn z-depth-0">Sign In</button>
           </div>
         </form>
       </div>
