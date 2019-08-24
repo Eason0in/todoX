@@ -60,6 +60,10 @@ form h5 {
   margin: 20px 0;
 }
 
+.todo-edit > textarea {
+  height: 8rem;
+}
+
 /* 
 .App .project-todos .todo-summary .card-action .todo-actions {
   display: inline-flex;

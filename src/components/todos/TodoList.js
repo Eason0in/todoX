@@ -2,10 +2,10 @@ import React from 'react'
 import TodoSummary from './TodoSummary'
 import CreateTodo from './CreateTodo'
 
-const TodoList = () => {
+const TodoList = ({ todos, project }) => {
   return (
     <ul className="row">
-      <TodoSummary />
+      {todos && todos.map(todo => <TodoSummary todo={todo} key={todo.id} />)}
       <CreateTodo />
     </ul>
   )

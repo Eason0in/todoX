@@ -2,30 +2,73 @@ import React, { Component } from 'react'
 
 class TodoSummary extends Component {
   state = {
-    todoTitle: '',
-    todoContent: ''
+    id: '',
+    title: '',
+    content: '',
+    projectId: '',
+    isEdit: false
+  }
+  handleDelete = id => {
+    console.log(id)
+  }
+  handleEdit = e => {
+    e.preventDefault()
+    this.setState({
+      isEdit: !this.state.isEdit
+    })
+  }
+  handleChange = e => {
+    this.setState({
+      [e.target.id]: e.target.value
+    })
+  }
+  UNSAFE_componentWillMount() {
+    const { id, title, content, projectId } = this.props.todo
+    this.setState({ id, title, content, projectId })
   }
   render() {
-    return (
-      <li className="col m4">
-        <div className="card todo-summary">
-          <div className="card-content">
-            <span className="card-title">1.Project Name</span>
-            <p>
-              完成個人網頁(首頁重做)https://s3.envato.com/files/257111114/Preview%20Image%20Set%20(v11%20Update)/Slide24.JPG
-            </p>
-          </div>
-          <div className="card-action">
-            {/* eslint-disable-next-line */}
-            <a className="todo-actions">
-              <i className="material-icons ">done</i>
-            </a>
+    const cardTitle = this.state.isEdit ? (
+      <div className="todo-edit">
+        <input type="text" id="title" value={this.state.title} onChange={this.handleChange} />
+        <textarea
+          id="content"
+          className="materialize-textarea"
+          rows="20"
+          value={this.state.content}
+          onChange={this.handleChange}
+        />
+      </div>
+    ) : (
+      <div>
+        <span className="card-title">
+          {this.state.id} - {this.state.title}
+        </span>
+        <p>{this.state.content}</p>
+      </div>
+    )
 
-            {/* eslint-disable-next-line */}
-            <a className="todo-actions">
-              <i className="material-icons">mode_edit</i>
-            </a>
-          </div>
+    const cardAction = this.state.isEdit ? (
+      <div>
+        <a href="this.handleEdit" className="todo-actions" onClick={this.handleEdit}>
+          <i className="material-icons">done</i>
+        </a>
+      </div>
+    ) : (
+      <div>
+        <a href="this.handleDelete" className="todo-actions" onClick={() => this.handleDelete(this.state.id)}>
+          <i className="material-icons">delete</i>
+        </a>
+
+        <a href="this.handleEdit" className="todo-actions" onClick={this.handleEdit}>
+          <i className="material-icons">mode_edit</i>
+        </a>
+      </div>
+    )
+    return (
+      <li className="col m12">
+        <div className="card todo-summary">
+          <div className="card-content">{cardTitle}</div>
+          <div className="card-action">{cardAction}</div>
         </div>
       </li>
     )
