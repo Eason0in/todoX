@@ -6,12 +6,6 @@ const TodoList = () => {
   return (
     <ul className="row">
       <TodoSummary />
-      <TodoSummary />
-      <TodoSummary />
-      <TodoSummary />
-      <TodoSummary />
-      <TodoSummary />
-      <TodoSummary />
       <CreateTodo />
     </ul>
   )

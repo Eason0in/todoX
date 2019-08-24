@@ -45,6 +45,11 @@ code {
 .App .project-todos .todo-summary .card-content {
   overflow-wrap: break-word;
 }
+
+a.todo-actions:hover {
+  cursor: pointer;
+}
+
 /* 
 .App .project-todos .todo-summary .card-action .todo-actions {
   display: inline-flex;

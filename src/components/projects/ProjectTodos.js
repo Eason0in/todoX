@@ -2,7 +2,6 @@ import React from 'react'
 import TodoList from '../todos/TodoList'
 
 const ProjectTodos = props => {
-  console.log(props)
   return (
     <div className="container project-todos section">
       <div className="card">
