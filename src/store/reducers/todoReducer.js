@@ -21,6 +21,14 @@ const todoReducer = (state = initState, action) => {
         ...state,
         todos: [...state.todos, action.todo]
       }
+    case 'DELETE_TODO':
+      const todos = state.todos.filter(todo => {
+        return todo.id !== action.id
+      })
+      return {
+        ...state,
+        todos
+      }
     default:
       return state
   }

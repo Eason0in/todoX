@@ -4,3 +4,11 @@ export const createTodo = todo => {
     dispatch({ type: 'CREATE_TODO', todo })
   }
 }
+
+export const deleteTodo = id => {
+  return (dispatch, getState) => {
+    //async
+
+    dispatch({ type: 'DELETE_TODO', id })
+  }
+}

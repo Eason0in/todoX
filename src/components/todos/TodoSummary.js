@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { deleteTodo } from '../../store/actions/todoActions'
+import { connect } from 'react-redux'
 
 class TodoSummary extends Component {
   state = {
@@ -8,8 +10,9 @@ class TodoSummary extends Component {
     projectId: '',
     isEdit: false
   }
-  handleDelete = id => {
-    console.log(id)
+  handleDelete = e => {
+    e.preventDefault()
+    this.props.deleteTodo(this.state.id)
   }
   handleEdit = e => {
     e.preventDefault()
@@ -55,7 +58,7 @@ class TodoSummary extends Component {
       </div>
     ) : (
       <div>
-        <a href="this.handleDelete" className="todo-actions" onClick={() => this.handleDelete(this.state.id)}>
+        <a href="this.handleDelete" className="todo-actions" onClick={this.handleDelete}>
           <i className="material-icons">delete</i>
         </a>
 
@@ -75,4 +78,13 @@ class TodoSummary extends Component {
   }
 }
 
-export default TodoSummary
+const mapDispatchToProps = dispatch => {
+  return {
+    deleteTodo: id => dispatch(deleteTodo(id))
+  }
+}
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(TodoSummary)
