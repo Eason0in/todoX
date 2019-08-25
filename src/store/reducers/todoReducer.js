@@ -15,7 +15,15 @@ const initState = {
 }
 
 const todoReducer = (state = initState, action) => {
-  return state
+  switch (action.type) {
+    case 'CREATE_TODO':
+      return {
+        ...state,
+        todos: [...state.todos, action.todo]
+      }
+    default:
+      return state
+  }
 }
 
 export default todoReducer

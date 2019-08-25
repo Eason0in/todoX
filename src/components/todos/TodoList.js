@@ -6,7 +6,7 @@ const TodoList = ({ todos, project }) => {
   return (
     <ul className="row">
       {todos && todos.map(todo => <TodoSummary todo={todo} key={todo.id} />)}
-      <CreateTodo />
+      <CreateTodo project={project} />
     </ul>
   )
 }
