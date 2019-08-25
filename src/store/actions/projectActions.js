@@ -12,7 +12,7 @@ export const createProject = project => {
         createdAt: new Date()
       })
       .then(() => {
-        dispatch({ type: 'CREATE_PROJECT', project })
+        dispatch({ type: 'CREATE_PROJECT' })
       })
       .catch(error => dispatch({ type: 'CREATE_PROJECT_ERROR', error }))
   }

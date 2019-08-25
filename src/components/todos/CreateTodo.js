@@ -6,7 +6,6 @@ class CreateTodo extends Component {
   state = {
     title: '',
     content: '',
-    id: '',
     projectId: ''
   }
   handleChange = e => {
@@ -20,8 +19,7 @@ class CreateTodo extends Component {
       (state, props) => {
         return {
           ...state,
-          id: Math.random(),
-          projectId: props.project.id
+          projectId: props.projectId
         }
       },
       () => {
@@ -30,7 +28,6 @@ class CreateTodo extends Component {
         this.setState({
           title: '',
           content: '',
-          id: '',
           projectId: ''
         })
       }

@@ -1,6 +1,8 @@
 import React from 'react'
 import TodoList from '../todos/TodoList'
 import { connect } from 'react-redux'
+import { firestoreConnect } from 'react-redux-firebase'
+import { compose } from 'redux'
 
 const ProjectTodos = ({ todos, project }) => {
   return (
@@ -9,11 +11,11 @@ const ProjectTodos = ({ todos, project }) => {
         <div className="card-content">
           <div className="card-title">
             <div className="project-detail">
-              <h5 className="grey-text text-darken-3">Project Name - {project.id}</h5>
-              <span>content</span>
+              <h5 className="grey-text text-darken-3">{project.title}</h5>
+              <span>{project.content}</span>
             </div>
           </div>
-          <TodoList todos={todos} project={project} />
+          <TodoList todos={todos} projectId={project.id} />
         </div>
       </div>
     </div>
@@ -22,12 +24,21 @@ const ProjectTodos = ({ todos, project }) => {
 
 const mapStateToProps = (state, ownProps) => {
   const projectId = ownProps.match.params.id
-  const todosByProjectId = state.todo.todos.filter(todo => todo.projectId === projectId)
-  const project = state.project.projects.find(project => project.id === projectId)
+  const todos = state.firestore.ordered.todos
+  const todosByProjectId = todos ? todos.filter(todo => todo.projectId === projectId) : null
+  const projects = state.firestore.data.projects
+  const project = projects ? projects[projectId] : null
+
   return {
     todos: todosByProjectId,
-    project: project
+    project: {
+      ...project,
+      id: projectId
+    }
   }
 }
 
-export default connect(mapStateToProps)(ProjectTodos)
+export default compose(
+  connect(mapStateToProps),
+  firestoreConnect(['projects', 'todos'])
+)(ProjectTodos)

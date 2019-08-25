@@ -21,7 +21,6 @@ const Dashboard = ({ projects }) => {
 }
 
 const mapStateToProps = state => {
-  console.log(state)
   return {
     projects: state.firestore.ordered.projects
   }
