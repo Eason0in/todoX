@@ -1,7 +1,19 @@
 export const createProject = project => {
   return (dispatch, getState, { getFirestore, getFirebase }) => {
-    //async
+    const firestore = getFirestore()
 
-    dispatch({ type: 'CREATE_PROJECT', project })
+    firestore
+      .collection('projects')
+      .add({
+        ...project,
+        authorFistName: 'Eason',
+        authorLastName: 'Lin',
+        authorId: '3345678',
+        createdAt: new Date()
+      })
+      .then(() => {
+        dispatch({ type: 'CREATE_PROJECT', project })
+      })
+      .catch(error => dispatch({ type: 'CREATE_PROJECT_ERROR', error }))
   }
 }
