@@ -3,7 +3,10 @@ export const createTodo = todo => {
     const firestore = getFirestore()
     firestore
       .collection('todos')
-      .add({ ...todo })
+      .add({
+        ...todo,
+        createdAt: new Date()
+      })
       .then(() => {
         dispatch({ type: 'CREATE_TODO' })
       })
@@ -22,5 +25,23 @@ export const deleteTodo = id => {
         dispatch({ type: 'DELETE_TODO', id })
       })
       .catch(error => dispatch({ type: 'DELETE_TODO_ERROR', error }))
+  }
+}
+
+export const editTodo = todo => {
+  return (dispatch, getState, { getFirebase, getFirestore }) => {
+    const firestore = getFirestore()
+    const { title, content } = todo
+    firestore
+      .collection('todos')
+      .doc(todo.id)
+      .update({
+        title,
+        content,
+        createdAt: new Date()
+      })
+      .then(() => {
+        dispatch({ type: 'EDIT_TODO', todo })
+      })
   }
 }

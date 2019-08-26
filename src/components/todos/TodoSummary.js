@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { deleteTodo } from '../../store/actions/todoActions'
+import { deleteTodo, editTodo } from '../../store/actions/todoActions'
 import { connect } from 'react-redux'
 
 class TodoSummary extends Component {
@@ -12,13 +12,25 @@ class TodoSummary extends Component {
   }
   handleDelete = e => {
     e.preventDefault()
-    this.props.deleteTodo(this.state.id)
+    if (window.confirm('Are you sure to delete this todo?')) {
+      this.props.deleteTodo(this.state.id)
+    }
   }
   handleEdit = e => {
     e.preventDefault()
-    this.setState({
-      isEdit: !this.state.isEdit
-    })
+    this.setState(
+      state => {
+        return {
+          ...state,
+          isEdit: !this.state.isEdit
+        }
+      },
+      () => {
+        if (!this.state.isEdit) {
+          this.props.editTodo(this.state)
+        }
+      }
+    )
   }
   handleChange = e => {
     this.setState({
@@ -53,13 +65,13 @@ class TodoSummary extends Component {
     const cardAction = this.state.isEdit ? (
       <div>
         <a href="this.handleEdit" className="todo-actions" onClick={this.handleEdit}>
-          <i className="material-icons">done</i>
+          <i className="material-icons teal-text text-lighten-1 medium">done</i>
         </a>
       </div>
     ) : (
       <div>
         <a href="this.handleDelete" className="todo-actions" onClick={this.handleDelete}>
-          <i className="material-icons">delete</i>
+          <i className="material-icons pink-text text-lighten-2">delete</i>
         </a>
 
         <a href="this.handleEdit" className="todo-actions" onClick={this.handleEdit}>
@@ -80,7 +92,8 @@ class TodoSummary extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    deleteTodo: id => dispatch(deleteTodo(id))
+    deleteTodo: id => dispatch(deleteTodo(id)),
+    editTodo: todo => dispatch(editTodo(todo))
   }
 }
 
