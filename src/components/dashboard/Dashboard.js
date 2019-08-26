@@ -24,11 +24,22 @@ const Dashboard = ({ projects, auth }) => {
 }
 
 const mapStateToProps = state => {
+  console.log(state)
   return {
     projects: state.firestore.ordered.projects,
     auth: state.firebase.auth
   }
 }
+
+// export default compose(
+//   connect(mapStateToProps),
+//   firestoreConnect(props => [
+//     {
+//       collection: 'projects',
+//       where: ['authorId', '==', props.auth.uid]
+//     }
+//   ])
+// )(Dashboard)
 
 export default compose(
   connect(mapStateToProps),

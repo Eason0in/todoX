@@ -4,14 +4,14 @@ import SignOutLinks from './SignOutLinks'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
-const Navbar = ({ auth }) => {
+const Navbar = ({ auth, profile }) => {
   return (
     <nav className="nav-wrapper grey darken-3">
       <div className="container">
         <Link to="/" className="brand-logo">
           TodoX
         </Link>
-        {auth.uid ? <SignInLinks /> : <SignOutLinks />}
+        {auth.uid ? <SignInLinks profile={profile} /> : <SignOutLinks />}
       </div>
     </nav>
   )
@@ -19,7 +19,8 @@ const Navbar = ({ auth }) => {
 
 const mapStateToProps = state => {
   return {
-    auth: state.firebase.auth
+    auth: state.firebase.auth,
+    profile: state.firebase.profile
   }
 }
 
