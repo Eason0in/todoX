@@ -1,14 +1,16 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { signOut } from '../../store/actions/authActions'
 
-const SignInLinks = () => {
+const SignInLinks = ({ signOut }) => {
   return (
     <ul className="right">
       <li>
         <Link to="/create">New Project</Link>
       </li>
       <li>
-        <Link to="/">Log Out</Link>
+        <a onClick={signOut}>Log Out</a>
       </li>
       <li>
         <Link to="/" className="btn btn-floating pink lighten-1">
@@ -19,4 +21,13 @@ const SignInLinks = () => {
   )
 }
 
-export default SignInLinks
+const mapDispatchToProps = dispatch => {
+  return {
+    signOut: () => dispatch(signOut())
+  }
+}
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(SignInLinks)

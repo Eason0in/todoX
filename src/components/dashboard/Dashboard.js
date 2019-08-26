@@ -4,8 +4,11 @@ import NoteArea from './NoteArea'
 import { connect } from 'react-redux'
 import { firestoreConnect } from 'react-redux-firebase'
 import { compose } from 'redux'
+import { Redirect } from 'react-router-dom'
 
-const Dashboard = ({ projects }) => {
+const Dashboard = ({ projects, auth }) => {
+  if (!auth.uid) return <Redirect to="/signin" />
+
   return (
     <div className="dashboard container">
       <div className="row">
@@ -22,7 +25,8 @@ const Dashboard = ({ projects }) => {
 
 const mapStateToProps = state => {
   return {
-    projects: state.firestore.ordered.projects
+    projects: state.firestore.ordered.projects,
+    auth: state.firebase.auth
   }
 }
 

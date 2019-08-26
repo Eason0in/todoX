@@ -3,8 +3,11 @@ import TodoList from '../todos/TodoList'
 import { connect } from 'react-redux'
 import { firestoreConnect } from 'react-redux-firebase'
 import { compose } from 'redux'
+import { Redirect } from 'react-router-dom'
 
-const ProjectTodos = ({ todos, project }) => {
+const ProjectTodos = ({ todos, project, auth }) => {
+  if (!auth.uid) return <Redirect to="/signin" />
+
   return (
     <div className="container project-todos section">
       <div className="card">
@@ -34,7 +37,8 @@ const mapStateToProps = (state, ownProps) => {
     project: {
       ...project,
       id: projectId
-    }
+    },
+    auth: state.firebase.auth
   }
 }
 
