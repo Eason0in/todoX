@@ -8,7 +8,6 @@ import { Redirect } from 'react-router-dom'
 
 const Dashboard = ({ projects, auth }) => {
   if (!auth.uid) return <Redirect to="/signin" />
-
   return (
     <div className="dashboard container">
       <div className="row">
@@ -24,22 +23,18 @@ const Dashboard = ({ projects, auth }) => {
 }
 
 const mapStateToProps = state => {
-  console.log(state)
+  const uid = state.firebase.auth.uid
+  const projects = state.firestore.ordered.projects
+  const projectsByUid = projects
+    ? projects.filter(project => {
+        return project.authorId === uid
+      })
+    : null
   return {
-    projects: state.firestore.ordered.projects,
+    projects: projectsByUid,
     auth: state.firebase.auth
   }
 }
-
-// export default compose(
-//   connect(mapStateToProps),
-//   firestoreConnect(props => [
-//     {
-//       collection: 'projects',
-//       where: ['authorId', '==', props.auth.uid]
-//     }
-//   ])
-// )(Dashboard)
 
 export default compose(
   connect(mapStateToProps),

@@ -7,7 +7,6 @@ import { Redirect } from 'react-router-dom'
 
 const ProjectTodos = ({ todos, project, auth }) => {
   if (!auth.uid) return <Redirect to="/signin" />
-
   return (
     <div className="container project-todos section">
       <div className="card">
