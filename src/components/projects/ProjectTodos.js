@@ -9,12 +9,11 @@ const ProjectTodos = ({ todos, project, auth }) => {
   if (!auth.uid) return <Redirect to="/signin" />
   return (
     <div className="container project-todos section">
-      <div className="card">
-        <div className="card-content">
+      <div className="card row">
+        <div className="card-content  col m12">
           <div className="card-title">
             <div className="project-detail">
-              <h5 className="grey-text text-darken-3">{project.title}</h5>
-              <span>{project.content}</span>
+              <h5 className="grey-text text-darken-3">{project.title}</h5> - <span>{project.content}</span>
             </div>
           </div>
           <TodoList todos={todos} projectId={project.id} />

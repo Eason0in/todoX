@@ -2,9 +2,9 @@ import React from 'react'
 
 const NoteArea = () => {
   return (
-    <div className="container section">
+    <div className="section note-area">
       <div className="input-field white">
-        <textarea id="textarea1" defaultValue="123123" cols="100" rows="100" />
+        <textarea placeholder="whatever you want to Temporary Data..." cols="100" rows="100" />
       </div>
     </div>
   )
