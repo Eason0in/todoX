@@ -45,7 +45,7 @@ class ProjectSummary extends Component {
     const cardTitle = this.state.isEdit ? (
       <div className="project-edit">
         <label htmlFor="title">Title</label>
-        <input type="text" id="title" value={this.state.title} onChange={this.handleChange} />
+        <input type="text" id="title" value={this.state.title} onChange={this.handleChange} required />
         <label htmlFor="content">Content</label>
         <input type="text" id="content" value={this.state.content} onChange={this.handleChange} />
         <label htmlFor="content">Content</label>

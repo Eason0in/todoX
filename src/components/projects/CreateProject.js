@@ -28,7 +28,7 @@ class CreateProject extends Component {
         <form onSubmit={this.handleSubmit} className="white">
           <h5 className="grey-text text-darken-3">Create new Project</h5>
           <div className="input-field">
-            <input id="title" type="text" onChange={this.handleChange} />
+            <input id="title" type="text" onChange={this.handleChange} required />
             <label htmlFor="title">Title</label>
           </div>
           <div className="input-field">
