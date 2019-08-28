@@ -43,9 +43,9 @@ class TodoSummary extends Component {
     const cardTitle = this.state.isEdit ? (
       <div className="todo-edit">
         <label htmlFor="title">Title</label>
-        <input type="text" id="title" value={this.state.title} onChange={this.handleChange} />
+        <input type="text" id="title" value={this.state.title} onChange={this.handleChange} required />
         <label htmlFor="order">Order</label>
-        <input type="number" id="order" value={this.state.order} onChange={this.handleChange} />
+        <input type="number" id="order" value={this.state.order} onChange={this.handleChange} required />
         <label htmlFor="content">Content</label>
         <textarea
           id="content"

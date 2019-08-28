@@ -24,7 +24,7 @@ class CreateTodo extends Component {
   handleChange = e => {
     let { id, value } = e.target
     if (id === 'order') {
-      value = parseInt(value)
+      value = value ? parseInt(value) : 0
     }
     this.setState({
       [id]: value
@@ -61,13 +61,13 @@ class CreateTodo extends Component {
           <form onSubmit={this.handleSubmit} className="white">
             <h5 className="grey-text text-darken-3">Create new Todo</h5>
             <div className="input-field">
-              <input id="title" type="text" value={this.state.title} onChange={this.handleChange} />
+              <input id="title" type="text" value={this.state.title} onChange={this.handleChange} required />
               <label htmlFor="title">Title</label>
             </div>
 
             <div>
               <label htmlFor="order">Order</label>
-              <input id="order" type="number" value={this.state.order} onChange={this.handleChange} />
+              <input id="order" type="number" value={this.state.order} onChange={this.handleChange} required />
             </div>
 
             <div className="input-field">
@@ -76,6 +76,7 @@ class CreateTodo extends Component {
                 className="materialize-textarea"
                 value={this.state.content}
                 onChange={this.handleChange}
+                required
               />
               <label htmlFor="content">Content</label>
             </div>
