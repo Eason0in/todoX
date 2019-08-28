@@ -5,6 +5,13 @@ const projectReducer = (state = {}, action) => {
     case 'CREATE_PROJECT_ERROR':
       console.log(action.error)
       return state
+    case 'EDIT_PROJECT':
+      return state
+    case 'DELETE_PROJECT':
+      return state
+    case 'DELETE_PROJECT_ERROR':
+      console.log(action.error)
+      return state
     default:
       return state
   }

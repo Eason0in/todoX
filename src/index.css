@@ -105,6 +105,10 @@ textarea:focus {
   margin-top: 0;
 }
 
+.card-action-btn {
+  display: inline-block;
+}
+
 /* 
 .App .project-todos .todo-summary .card-action .todo-actions {
   display: inline-flex;
