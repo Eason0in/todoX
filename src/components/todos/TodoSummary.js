@@ -5,8 +5,8 @@ import { connect } from 'react-redux'
 class TodoSummary extends Component {
   constructor(props) {
     super(props)
-    const { id, title, content, projectId } = props.todo
-    this.state = { id, title, content, projectId, isEdit: false }
+    const { id, title, content, projectId, order } = props.todo
+    this.state = { id, title, content, projectId, order, isEdit: false }
   }
   handleDelete = e => {
     e.preventDefault()
@@ -31,14 +31,22 @@ class TodoSummary extends Component {
     )
   }
   handleChange = e => {
+    let { id, value } = e.target
+    if (id === 'order') {
+      value = parseInt(value)
+    }
     this.setState({
-      [e.target.id]: e.target.value
+      [id]: value
     })
   }
   render() {
     const cardTitle = this.state.isEdit ? (
       <div className="todo-edit">
+        <label htmlFor="title">Title</label>
         <input type="text" id="title" value={this.state.title} onChange={this.handleChange} />
+        <label htmlFor="order">Order</label>
+        <input type="number" id="order" value={this.state.order} onChange={this.handleChange} />
+        <label htmlFor="content">Content</label>
         <textarea
           id="content"
           className="materialize-textarea"
@@ -50,7 +58,7 @@ class TodoSummary extends Component {
     ) : (
       <div>
         <span className="card-title">
-          {this.state.id} - {this.state.title}
+          {this.state.order} - {this.state.title}
         </span>
         <p>{this.state.content}</p>
       </div>

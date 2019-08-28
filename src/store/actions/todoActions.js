@@ -31,14 +31,15 @@ export const deleteTodo = id => {
 export const editTodo = todo => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     const firestore = getFirestore()
-    const { title, content } = todo
+    const { title, content, order } = todo
     firestore
       .collection('todos')
       .doc(todo.id)
       .update({
         title,
         content,
-        createdAt: new Date()
+        createdAt: new Date(),
+        order
       })
       .then(() => {
         dispatch({ type: 'EDIT_TODO', todo })

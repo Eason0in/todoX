@@ -9,14 +9,14 @@ const ProjectTodos = ({ todos, project, auth }) => {
   if (!auth.uid) return <Redirect to="/signin" />
   return (
     <div className="container project-todos section">
-      <div className="card row">
-        <div className="card-content  col m12">
+      <div className="card">
+        <div className="card-content">
           <div className="card-title">
             <div className="project-detail">
               <h5 className="grey-text text-darken-3">{project.title}</h5> - <span>{project.content}</span>
             </div>
           </div>
-          <a className="waves-effect waves-light btn modal-trigger btn-floating" href="#createModal">
+          <a className="waves-effect waves-light btn modal-trigger btn-floating red" href="#createModal">
             <i className="material-icons">add</i>
           </a>
           <TodoList todos={todos} projectId={project.id} />
@@ -45,5 +45,5 @@ const mapStateToProps = (state, ownProps) => {
 
 export default compose(
   connect(mapStateToProps),
-  firestoreConnect(['projects', 'todos'])
+  firestoreConnect(['projects', { collection: 'todos', orderBy: 'order' }])
 )(ProjectTodos)

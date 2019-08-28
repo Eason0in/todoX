@@ -9,19 +9,28 @@ class CreateTodo extends Component {
     this.state = {
       title: '',
       content: '',
-      projectId: ''
+      projectId: '',
+      order: 1
     }
+
+    this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
   componentDidMount() {
-    this.elems = document.querySelectorAll('.modal')
-    this.instances = this.M.Modal.init(this.elems, {})
+    let modalElems = document.querySelectorAll('.modal')
+    this.modalInstances = this.M.Modal.init(modalElems, {})
   }
 
   handleChange = e => {
+    let { id, value } = e.target
+    if (id === 'order') {
+      value = parseInt(value)
+    }
     this.setState({
-      [e.target.id]: e.target.value
+      [id]: value
     })
   }
+
   handleSubmit = e => {
     e.preventDefault()
     this.setState(
@@ -37,10 +46,11 @@ class CreateTodo extends Component {
         this.setState({
           title: '',
           content: '',
-          projectId: ''
+          projectId: '',
+          order: 1
         })
 
-        this.instances[0].close()
+        this.modalInstances[0].close()
       }
     )
   }
@@ -54,6 +64,12 @@ class CreateTodo extends Component {
               <input id="title" type="text" value={this.state.title} onChange={this.handleChange} />
               <label htmlFor="title">Title</label>
             </div>
+
+            <div>
+              <label htmlFor="order">Order</label>
+              <input id="order" type="number" value={this.state.order} onChange={this.handleChange} />
+            </div>
+
             <div className="input-field">
               <textarea
                 id="content"
