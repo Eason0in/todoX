@@ -3,12 +3,10 @@ import { deleteTodo, editTodo } from '../../store/actions/todoActions'
 import { connect } from 'react-redux'
 
 class TodoSummary extends Component {
-  state = {
-    id: '',
-    title: '',
-    content: '',
-    projectId: '',
-    isEdit: false
+  constructor(props) {
+    super(props)
+    const { id, title, content, projectId } = props.todo
+    this.state = { id, title, content, projectId, isEdit: false }
   }
   handleDelete = e => {
     e.preventDefault()
@@ -37,10 +35,6 @@ class TodoSummary extends Component {
       [e.target.id]: e.target.value
     })
   }
-  UNSAFE_componentWillMount() {
-    const { id, title, content, projectId } = this.props.todo
-    this.setState({ id, title, content, projectId })
-  }
   render() {
     const cardTitle = this.state.isEdit ? (
       <div className="todo-edit">
@@ -64,17 +58,17 @@ class TodoSummary extends Component {
 
     const cardAction = this.state.isEdit ? (
       <div>
-        <a href="this.handleEdit" className="todo-actions" onClick={this.handleEdit}>
-          <i className="material-icons teal-text text-lighten-1 medium">done</i>
+        <a href="this.handleEdit" className="todo-actions teal-text text-lighten-1" onClick={this.handleEdit}>
+          <i className="material-icons medium">done</i>
         </a>
       </div>
     ) : (
       <div>
-        <a href="this.handleDelete" className="todo-actions" onClick={this.handleDelete}>
-          <i className="material-icons pink-text text-lighten-2">delete</i>
+        <a href="this.handleDelete" className="todo-actions pink-text text-lighten-2" onClick={this.handleDelete}>
+          <i className="material-icons ">delete</i>
         </a>
 
-        <a href="this.handleEdit" className="todo-actions" onClick={this.handleEdit}>
+        <a href="this.handleEdit" className="todo-actions teal-text text-lighten-1" onClick={this.handleEdit}>
           <i className="material-icons">mode_edit</i>
         </a>
       </div>

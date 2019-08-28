@@ -3,11 +3,20 @@ import { connect } from 'react-redux'
 import { createTodo } from '../../store/actions/todoActions'
 
 class CreateTodo extends Component {
-  state = {
-    title: '',
-    content: '',
-    projectId: ''
+  constructor(props) {
+    super(props)
+    this.M = window.M
+    this.state = {
+      title: '',
+      content: '',
+      projectId: ''
+    }
   }
+  componentDidMount() {
+    this.elems = document.querySelectorAll('.modal')
+    this.instances = this.M.Modal.init(this.elems, {})
+  }
+
   handleChange = e => {
     this.setState({
       [e.target.id]: e.target.value
@@ -30,31 +39,35 @@ class CreateTodo extends Component {
           content: '',
           projectId: ''
         })
+
+        this.instances[0].close()
       }
     )
   }
   render() {
     return (
       <li className="col m12">
-        <form onSubmit={this.handleSubmit} className="white">
-          <h5 className="grey-text text-darken-3">Create new Todo</h5>
-          <div className="input-field">
-            <input id="title" type="text" value={this.state.title} onChange={this.handleChange} />
-            <label htmlFor="title">Title</label>
-          </div>
-          <div className="input-field">
-            <textarea
-              id="content"
-              className="materialize-textarea"
-              value={this.state.content}
-              onChange={this.handleChange}
-            />
-            <label htmlFor="content">Content</label>
-          </div>
-          <div className="input-field">
-            <button className="btn z-depth-0">Create</button>
-          </div>
-        </form>
+        <div id="createModal" className="modal">
+          <form onSubmit={this.handleSubmit} className="white">
+            <h5 className="grey-text text-darken-3">Create new Todo</h5>
+            <div className="input-field">
+              <input id="title" type="text" value={this.state.title} onChange={this.handleChange} />
+              <label htmlFor="title">Title</label>
+            </div>
+            <div className="input-field">
+              <textarea
+                id="content"
+                className="materialize-textarea"
+                value={this.state.content}
+                onChange={this.handleChange}
+              />
+              <label htmlFor="content">Content</label>
+            </div>
+            <div className="input-field">
+              <button className="btn z-depth-0">Create</button>
+            </div>
+          </form>
+        </div>
       </li>
     )
   }

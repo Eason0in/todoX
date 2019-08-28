@@ -16,6 +16,9 @@ const ProjectTodos = ({ todos, project, auth }) => {
               <h5 className="grey-text text-darken-3">{project.title}</h5> - <span>{project.content}</span>
             </div>
           </div>
+          <a className="waves-effect waves-light btn modal-trigger btn-floating" href="#createModal">
+            <i className="material-icons">add</i>
+          </a>
           <TodoList todos={todos} projectId={project.id} />
         </div>
       </div>

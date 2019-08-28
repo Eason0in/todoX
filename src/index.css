@@ -96,6 +96,14 @@ textarea:focus {
   display: inline-block;
 }
 
+.project-detail button {
+  margin-left: 100px;
+}
+
+#createModal form {
+  margin-top: 0;
+}
+
 /* 
 .App .project-todos .todo-summary .card-action .todo-actions {
   display: inline-flex;
