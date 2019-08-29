@@ -14,14 +14,15 @@
 
 ## Screen Photo
 
-![signUp](/img/signup.JPG)
-![index](/img/index.JPG)
-![create](/img/create.JPG)
-![detail](/img/detail.JPG)
+![signUp](https://github.com/Eason0in/todoX/tree/master/public/img/signup.JPG)
+![index](https://github.com/Eason0in/todoX/tree/master/public/img/index.JPG)
+![create](https://github.com/Eason0in/todoX/tree/master/public/img/create.JPG)
+![detail](https://github.com/Eason0in/todoX/tree/master/public/img/detail.JPG)
 
 ## 使用工具
 
 - [Visual Studio Code](https://visualstudio.microsoft.com/zh-hant/) - 開發環境
 - [React](https://reactjs.org/) - 前端 Framework
+- [Redux](https://chentsulin.github.io/redux/) - 結合 React 統一管理應用程式使用的資料庫
 - [Firebase](https://firebase.google.com/) - It is a mobile and web application development platform developed by Firebase
 - [Materialize](https://materializecss.com/) - A modern responsive front-end framework
