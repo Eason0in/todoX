@@ -14,10 +14,10 @@
 
 ## Screen Photo
 
-![signUp](https://github.com/Eason0in/todoX/tree/master/public/img/signup.JPG)
-![index](https://github.com/Eason0in/todoX/tree/master/public/img/index.JPG)
-![create](https://github.com/Eason0in/todoX/tree/master/public/img/create.JPG)
-![detail](https://github.com/Eason0in/todoX/tree/master/public/img/detail.JPG)
+![signUp](https://github.com/Eason0in/todoX/blob/master/public/img/signup.JPG)
+![index](https://github.com/Eason0in/todoX/blob/master/public/img/index.JPG)
+![create](https://github.com/Eason0in/todoX/blob/master/public/img/create.JPG)
+![detail](https://github.com/Eason0in/todoX/blob/master/public/img/detail.JPG)
 
 ## 使用工具
 
