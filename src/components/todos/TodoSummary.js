@@ -82,7 +82,7 @@ class TodoSummary extends Component {
       </div>
     )
     return (
-      <li className="col m12">
+      <li className="col s12 m12">
         <div className="card todo-summary">
           <div className="card-content">{cardTitle}</div>
           <div className="card-action">{cardAction}</div>

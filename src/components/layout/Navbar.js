@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 
 const Navbar = ({ auth, profile }) => {
   return (
-    <nav className="nav-wrapper grey darken-3">
+    <nav id="navbar" className="nav-wrapper grey darken-3">
       <div className="container">
         <Link to="/" className="brand-logo">
           TodoX

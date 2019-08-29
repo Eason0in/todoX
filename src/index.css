@@ -109,6 +109,17 @@ textarea:focus {
   display: inline-block;
 }
 
+@media only screen and (max-width: 600px) {
+  #navbar .brand-logo {
+    left: 13%;
+  }
+
+  .project-detail h5,
+  .project-detail span {
+    font-size: 1.5rem;
+  }
+}
+
 /* 
 .App .project-todos .todo-summary .card-action .todo-actions {
   display: inline-flex;
