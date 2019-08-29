@@ -14,7 +14,7 @@ class ProjectSummary extends Component {
 
   handleDelete = e => {
     e.preventDefault()
-    if (window.confirm("Are you sure to delete this project? \n (In this project's todos are going to delete) ")) {
+    if (window.confirm('Are you sure to delete this project? \n (Including todos in this project) ')) {
       this.props.deleteProject(this.state.id)
     }
   }
