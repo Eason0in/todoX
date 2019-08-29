@@ -30,7 +30,7 @@ class NoteArea extends Component {
               value={this.state.textarea}
               onChange={this.handleChange}
               id="textarea"
-              placeholder="whatever you want to Temporary Data..."
+              placeholder="Any temporary data you want to record..."
               cols="100"
               rows="100"
             />
