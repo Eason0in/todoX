@@ -51,8 +51,8 @@ class ProjectSummary extends Component {
         <label htmlFor="content">Content</label>
       </div>
     ) : (
-      <div>
-        <Link to={'/projecttodo/' + this.state.id} key={this.state.id} className="grey-text text-darken-3">
+      <div className="project-item">
+        <Link to={'/projecttodo/' + this.state.id} key={this.state.id} className="light-blue-text text-darken-2">
           <span className="card-title activator ">{this.state.title}</span>
         </Link>
       </div>

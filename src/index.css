@@ -7,7 +7,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
-    'Droid Sans', 'Helvetica Neue', sans-serif;
+    'Droid Sans', 'Helvetica Neue', sans-serif, '微軟正黑體';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: url(/img/SV.jpg);
@@ -107,6 +107,10 @@ textarea:focus {
 
 .card-action-btn {
   display: inline-block;
+}
+
+.project-list .project-item span {
+  font-weight: 500;
 }
 
 @media only screen and (max-width: 600px) {
